@@ -11,27 +11,64 @@
         border-right: #9197B3 2px solid;
         padding-inline: 10px;
         .title{
-            font-size: 28px;
+            font-size: 18px;
             font-family: 'Poppins-SemiBold';
             font-weight: 600;
             display: flex;
             align-items: center;            
             justify-content: space-between;
         }
-        &-components{
-            
-            p{
-                font-family: 'Poppins';
-                font-weight: 500;
-                translate:0px 10px;
-            }
+        &-components{            
+            cursor:pointer;
             width:100%;
             height: max-content;    
             font-size: 25px;
             color: gray;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            
+           
+            .select-header{
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: 'Poppins';
+                font-weight: 500;
+                translate:0px 10px;                                
+                transition: all 0.3s ease;
+            }
+            .select-options{
+                position: absolute;
+                width: 100%;
+                background: white;                                
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(0px);
+                font-size: 18px;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                pointer-events: none; 
+            }
+          
+            &:focus-within {
+                margin-bottom: 100px;
+                scale:200px                
+            }
+            &:focus-within img:last-child{
+                rotate: 90deg;
+            }
+            &:focus-within .select-options {
+                opacity: 1;
+                transform: translateY(70px);
+                pointer-events: all;                
+              }
+            
+              .option {
+                padding: 10px;
+                
+                transition: background 0.2s ease;
+                &:hover {
+                  background: #f0f0f0;
+                }
+              }
         }
         box-shadow: 0 0 10px 5px #D3FFE7;
     }
@@ -41,7 +78,7 @@
         align-items: center;
         
         flex-direction: column;
-        row-gap: 30px;
+        row-gap: 3npm 0px;
         
         .header{    
             display: flex;
@@ -175,5 +212,50 @@
         }
     }
  
+
+.custom-select {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+  
+  .select-header {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .select-options {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; // Блокируем взаимодействие, пока не видно
+  }
+
+  &:focus-within .select-options {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .option {
+    padding: 10px;
+    transition: background 0.2s ease;
+    
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
 }
+
+
+}
+
 
