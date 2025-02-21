@@ -6,10 +6,10 @@
     .side-bar{
         
         width: 100%;
-        height: calc(100vh - 75px);
+        height:100vh;
         background-color: white;
         border-right: #9197B3 2px solid;
-        padding-inline: 10px;
+        padding-inline: 20px;
         .title{
             font-size: 18px;
             font-family: 'Poppins-SemiBold';
@@ -20,12 +20,12 @@
         }
         &-components{            
             cursor:pointer;
-            width:100%;
+            width:90%;
             height: max-content;    
             font-size: 25px;
             color: gray;
-            
-           
+            transition: all 0.3s ease-in-out;
+            border-radius: 4px;
             .select-header{
                 position: relative;
                 display: flex;
@@ -33,7 +33,7 @@
                 align-items: center;
                 font-family: 'Poppins';
                 font-weight: 500;
-                translate:0px 10px;                                
+                
                 transition: all 0.3s ease;
             }
             .select-options{
@@ -57,9 +57,12 @@
                 }
             }
           
-            &:focus-within {
+            &:focus-within{
+                
                 margin-bottom: 100px;
-                scale:200px                
+                background-color: #4925E9;
+                transform: scale(1.1);
+                box-shadow: 0 0 5px 1px #5932EA;
             }
             &:focus-within img:last-child{
                 rotate: 90deg;
