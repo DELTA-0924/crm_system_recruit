@@ -13,8 +13,8 @@
         <img src="assets/icons/candidates.svg" width="24" height="24">        
           Candidates    
           <div class="select-options">
-            <div class="option">View</div>
-            <div class="option">Create</div>        
+            <button (click)="selectedTable= 'candidates'">View</button><br>
+            <button>Create</button>
           </div>
           <img src="assets/icons/chevron-right 2.svg"   class="arrow-1" width="24" height="24">        
       </div>
@@ -25,11 +25,11 @@
         <div class="select-header" tabindex="0">
           <img src="assets/icons/vacancies.svg" width="24" height="24">
           Vacancies
-          <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
           <div class="select-options">
-            <div class="option">View</div>
-            <div class="option">Create</div>        
+            <button (click)="selectedTable= 'vacancies'">View</button><br>
+            <button>Create</button>
           </div>
+          <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
         </div>
     </div>
   </nav>
@@ -70,28 +70,14 @@
               </div>
             </div>
           </div>
+        </div>  
+                            
+        <div [ngSwitch]="selectedTable"  class="table-container">
+          <app-vacancies *ngSwitchCase="'vacancies'"> </app-vacancies>
+          <app-candidates *ngSwitchCase="'candidates'"></app-candidates>
         </div>
-    <div class="content-wrapper">
-      <div class="content-header">
-        <p>All Candidates</p>
-        <div class="content-utils">
-          <input class="content-search">
-          <select class="content-orderby">
-            <option value=" newest">Newest</option>
-            <option value=" older">Older</option>            
-          </select>
-        </div>
-        
-      </div>
-      <div class="content-table">
-        <p>Candidate Name </p>
-        <p>Age</p>
-        <p>Phone Number</p>
-        <p>Email</p>
-        <p>Country</p>
-        <p>Status</p>
-      </div>
-    </div>  
+      
   </div>
+  
   
 </div>
