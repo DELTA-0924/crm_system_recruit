@@ -4,13 +4,18 @@ import {CandidatesComponent }from "./components/candidates/candidates.component"
 import { VacanciesComponent } from "./components/vacancies/vacancies.component"; 
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import {FullCalendarModule} from '@fullcalendar/angular'
+import {CalendarOptions} from '@fullcalendar/core'
+import dayGridPlugin from '@fullcalendar/daygrid'
 @Component({
   selector: 'app-root',
-  imports: [CandidatesComponent, VacanciesComponent,CommonModule],
+  imports: [CandidatesComponent, VacanciesComponent,CommonModule,CalendarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   selectedTable:string="Candidates"
   title = 'auto-sys-vacancy';
+
 }

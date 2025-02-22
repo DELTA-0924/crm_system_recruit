@@ -13,7 +13,7 @@
         <img src="assets/icons/candidates.svg" width="24" height="24">        
           <span>Candidates</span>
           <div class="select-options">
-            <button (click)="selectedTable= 'candidates'">View</button><br>
+            <button (click)="selectedTable= 'candidates'">View</button>
             <button>Create</button>
           </div>
           <img src="assets/icons/chevron-right 2.svg"   class="arrow-1" width="24" height="24">        
@@ -26,12 +26,23 @@
           <img src="assets/icons/vacancies.svg" width="24" height="24">
           Vacancies
           <div class="select-options">
-            <button (click)="selectedTable= 'vacancies'">View</button><br>
+            <button (click)="selectedTable= 'vacancies'">View</button>
             <button>Create</button>
           </div>
           <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
         </div>
     </div>
+    <div class="side-bar-components">
+      <div class="select-header" tabindex="0">
+        <img src="assets/icons/vacancies.svg" width="24" height="24">
+        Calendar
+        <div class="select-options">
+          <button (click)="selectedTable= 'calendar'">View</button>
+          
+        </div>
+        <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
+      </div>
+  </div>
   </nav>
 
  <div class="inner-main">
@@ -75,6 +86,7 @@
         <div [ngSwitch]="selectedTable"  class="table-container">
           <app-vacancies *ngSwitchCase="'vacancies'"> </app-vacancies>
           <app-candidates *ngSwitchCase="'candidates'"></app-candidates>
+          <app-calendar  *ngSwitchCase="'calendar' "></app-calendar>
         </div>
       
   </div>
