@@ -1,0 +1,55 @@
+<div class="form__wrapper">
+    <form class="form__inner" [formGroup]="phoneForm">
+        <div class="form__inner-number">
+            <label >
+                Phone number                
+            </label>
+            <ngx-intl-tel-input
+            [cssClass]="'custom'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[
+              SearchCountryField.Iso2,
+              SearchCountryField.Name
+            ]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.India"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="separateDialCode"
+            [numberFormat]="PhoneNumberFormat.National"
+            name="phone"
+            formControlName="phone" width="100%"
+          >
+          </ngx-intl-tel-input>
+        </div>
+        <div class ="form__inner__info">
+            <label>
+                Information
+            </label>
+            <div class="info-wrapper">
+                <input type="text" class="info-name">
+                <input type="text" class="info-suranme">
+
+            </div>            
+        </div>
+        <div class="from__inner-location">
+            <label>
+                Location
+            </label>
+            <select class="select-location">                
+                <option selected> New York,United States</option>
+            </select>
+        </div>
+        <div class="form__inner-aboutme">
+            <label>
+                About Me
+            </label>
+            <textarea class="textarea-aboutme">
+
+            </textarea>
+        </div>
+    </form>
+</div>

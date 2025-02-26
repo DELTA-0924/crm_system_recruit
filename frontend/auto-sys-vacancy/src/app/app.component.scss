@@ -92,12 +92,18 @@
     }
     .inner-main{
 
+
         display: flex;
         align-items: center;
         
         flex-direction: column;
         row-gap: 100px;
         
+        .modal{
+            top:20%;
+            position: absolute;
+        }
+
         .header{    
             display: flex;
             justify-content: center;

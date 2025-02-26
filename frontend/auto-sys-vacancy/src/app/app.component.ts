@@ -8,9 +8,10 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import {FullCalendarModule} from '@fullcalendar/angular'
 import {CalendarOptions} from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import { CreateCandidateComponent } from './modals/create-candidate/create-candidate.component';
 @Component({
   selector: 'app-root',
-  imports: [CandidatesComponent, VacanciesComponent,CommonModule,CalendarComponent],
+  imports: [CandidatesComponent, VacanciesComponent,CommonModule,CalendarComponent,CreateCandidateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
