@@ -12,6 +12,7 @@
         padding-inline: 20px;
         position: sticky;
         top: 0;
+        box-shadow: 0 0 10px 5px #D3FFE7;
         .title{
             font-size: 18px;
             font-family: 'Poppins-SemiBold';
@@ -58,7 +59,7 @@
                     border:none;
                     border-block: #D3FFE7 1px solid;
                     outline: none;
-                    background: opacity( #D3FFE7)
+            
                 }
             }
           
@@ -88,7 +89,7 @@
                 }
               }
         }
-        box-shadow: 0 0 10px 5px #D3FFE7;
+      
     }
     .inner-main{
 
