@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxIntlTelInputModule,SearchCountryField, CountryISO, PhoneNumberFormat  } from 'ngx-intl-tel-input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @Component({
   selector: 'app-create-candidate',
   imports: [NgxIntlTelInputModule,	FormsModule,ReactiveFormsModule],
   templateUrl: './create-candidate.component.html',
-  styleUrl: './create-candidate.component.scss'
+  styleUrl: './create-candidate.component.scss',
+  encapsulation:ViewEncapsulation.None
+	
 })
 export class CreateCandidateComponent {
 	separateDialCode = false;

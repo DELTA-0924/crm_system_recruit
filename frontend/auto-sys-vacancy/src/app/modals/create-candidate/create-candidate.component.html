@@ -1,3 +1,4 @@
+
 <div class="form__wrapper">
     <form class="form__inner" [formGroup]="phoneForm">
         <div class="form__inner-number">
@@ -11,8 +12,8 @@
             [enablePlaceholder]="true"
             [searchCountryFlag]="true"
             [searchCountryField]="[
-              SearchCountryField.Iso2,
-              SearchCountryField.Name
+            SearchCountryField.Iso2,
+            SearchCountryField.Name
             ]"
             [selectFirstCountry]="false"
             [selectedCountryISO]="CountryISO.India"
@@ -22,8 +23,8 @@
             [numberFormat]="PhoneNumberFormat.National"
             name="phone"
             formControlName="phone" width="100%"
-          >
-          </ngx-intl-tel-input>
+        >
+        </ngx-intl-tel-input>
         </div>
         <div class ="form__inner__info">
             <label>
@@ -51,5 +52,8 @@
 
             </textarea>
         </div>
+        <button>
+            Create
+        </button>
     </form>
 </div>
