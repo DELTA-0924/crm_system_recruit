@@ -1,0 +1,99 @@
+
+<div class="main">
+  
+    <nav class="side-bar">
+      <div class="title">
+        <img src="assets/icons/dashboard.svg" width="84" height="84">
+        <h1>DashBoard</h1>         
+      </div>
+      <div class="side-bar-components ">
+        
+        <div class="select-header" tabindex="0">
+          <img src="assets/icons/candidates.svg" width="24" height="24">        
+            <span>Кандидаты</span>
+            <div class="select-options">
+              <button (click)="ShowComponent('candidates')">Просмотреть</button>
+              <button (click)="OpenModal('candidates')">Создать</button>
+            </div>
+            <img src="assets/icons/chevron-right 2.svg"   class="arrow-1" width="24" height="24">        
+        </div>
+        
+        
+      </div>
+      <div class="side-bar-components">
+          <div class="select-header" tabindex="0">
+            <img src="assets/icons/vacancies.svg" width="24" height="24">
+            Вакансии
+            <div class="select-options">
+              <button (click)="ShowComponent('vacancies')">Просмотреть</button>
+              <button (click)="OpenModal('vacancies')">Создать</button>
+  
+            </div>
+            <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
+          </div>
+      </div>  
+      <div class="side-bar-components">
+        <div class="select-header" tabindex="0">
+          <img src="assets/icons/vacancies.svg" width="24" height="24">
+          Каледарь
+          <div class="select-options">
+            <button (click)="ShowComponent('calendar')">Просмотреть</button>
+            
+          </div>
+          <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
+        </div>
+    </div>
+    </nav>
+  
+   <div class="inner-main">
+    <header class="header">
+      <div class="header-title">
+        <h2>CRM Technology</h2>
+      </div>
+    </header>
+        <div class="stats__wrapper">
+            <div class="stats__wrapper__statistics">
+              <div class="main-stats">
+                  <div class="stats-icon">
+                  <img src="assets/icons/total-candidate.svg" width="42" height="42">              
+                  </div>
+                  <div class="stats-content">
+                    <h4>Total Candidates</h4>
+                    <h1>5,423</h1>              
+                  </div>
+              </div>
+              <div class="main-stats">
+                <div class="stats-icon">
+                  <img src="assets/icons/invited-candidates.svg" width="42" height="42">                                    
+                </div>
+                <div class="stats-content">
+                  <h4>Invated Candidates</h4>
+                  <h1>5,423</h1>              
+                </div>
+              </div>
+              <div class="main-stats">
+                <div class="stats-icon">
+                  <img src="assets/icons/passed-candidate.svg" width="42" height="42">                                    
+                </div>
+                <div class="stats-content">
+                  <h4>Passed Candidates</h4>
+                  <h1>5,423</h1>              
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div class="table-container">
+            <ng-container *ngIf="selectedComponent">
+            <ng-container [ngComponentOutlet]="selectedComponent" ></ng-container>
+            </ng-container>
+        </div>
+        <div class="modal">
+          <ng-container *ngIf="SelectedModal">
+            <ng-container #modalContainer></ng-container>
+          </ng-container>
+        </div>
+         
+    </div>
+    
+      
+  </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-vacancy',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './create-vacancy.component.scss'
 })
 export class CreateVacancyComponent {
-
+ @Output() CloseEvent=new EventEmitter();
+ CloseModal(){
+  this.CloseEvent.emit()
+ }
 }

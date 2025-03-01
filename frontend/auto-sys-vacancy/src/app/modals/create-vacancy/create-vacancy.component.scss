@@ -1,0 +1,71 @@
+
+.form__wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border:2px gray solid;
+    
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    background-color: transparent;
+    border: none;
+
+    svg:last-child{
+        rotate: 180deg;
+        translate:-18px
+    }
+  
+}
+
+form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 20px;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.salary-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #4954d8;
+}

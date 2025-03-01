@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation,EventEmitter,Output } from '@angular/core';
 import { FormGroup, FormControl, Validators,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxIntlTelInputModule,SearchCountryField, CountryISO, PhoneNumberFormat  } from 'ngx-intl-tel-input';
 
@@ -11,6 +11,11 @@ import { NgxIntlTelInputModule,SearchCountryField, CountryISO, PhoneNumberFormat
 	
 })
 export class CreateCandidateComponent {
+	@Output() CloseEvent=new EventEmitter<void>();
+	CloseModal(){
+		this.CloseEvent.emit()
+		console.log("close event on candidate")
+	}
 	separateDialCode = false;
 	SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
@@ -19,7 +24,6 @@ export class CreateCandidateComponent {
 	phoneForm = new FormGroup({
 		phone: new FormControl(undefined, [Validators.required])
 	});
-
 	changePreferredCountries() {
 		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
 	}

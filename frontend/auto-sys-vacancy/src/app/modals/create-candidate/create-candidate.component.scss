@@ -1,5 +1,18 @@
 
     .form__wrapper{
+        .close-btn{
+            position: absolute;
+            top: 10px;
+            right: -10px;
+            background-color: transparent;
+            border: none;
+
+            svg:last-child{
+                rotate: 180deg;
+                translate:-18px
+            }
+          
+        }
         background-color: #FFFFFF;
         border-radius: 24px;
         border:2px gray solid;
@@ -25,7 +38,34 @@
                 display: flex;
                 flex-direction: column;
             }
-            
+            &-location{
+                display: flex;
+                flex-direction: column;
+            }
+            .select-location{
+                height:30px;
+                width: 100%;
+                outline: none;
+            }
+            .button-create{
+                border:none;
+                background-color: #5c67f2;              
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 156px;
+                height: 48px;
+                font-family: 'Poppins-Regular';
+                transition: background 0.3s;
+                border-radius: 16px;
+                color:white;
+                cursor: pointer;
+           
+            }
+            .button-create:hover {
+                background-color: #4954d8;
+            }
+         
         }
     }
 .iti--allow-dropdown{

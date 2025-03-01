@@ -1,9 +1,18 @@
 
 <div class="form__wrapper">
+    <button class="close-btn" (click)="CloseModal()"> 
+        <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12L10 8L6 4" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  
+    </button>
     <form class="form__inner" [formGroup]="phoneForm">
         <div class="form__inner-number">
             <label >
-                Phone number                
+                Номер Телефона                
             </label>
             <ngx-intl-tel-input
             [cssClass]="'custom'"
@@ -28,7 +37,7 @@
         </div>
         <div class ="form__inner__info">
             <label>
-                Information
+                Имя,Фамилия
             </label>
             <div class="info-wrapper">
                 <input type="text" class="info-name">
@@ -36,24 +45,39 @@
 
             </div>            
         </div>
-        <div class="from__inner-location">
+        <div class="form__inner-location">
             <label>
                 Location
             </label>
-            <select class="select-location">                
-                <option selected> New York,United States</option>
-            </select>
+            <div style="display: flex; column-gap: 10px;">
+                <img src="../../../assets/icons/location.svg"  width="25" height="25">
+                <select class="select-location">                      
+                    <option selected> Область 1</option>
+                    <option > Область 2</option>
+                    <option > Область 3</option>
+                    <option > Область 4<option>
+                </select>
+        </div>
         </div>
         <div class="form__inner-aboutme">
             <label>
-                About Me
+                Детальная информа
             </label>
             <textarea class="textarea-aboutme">
 
             </textarea>
         </div>
-        <button>
-            Create
+        <div style="display: flex; column-gap:10px">
+            Дата встречи
+            <input 
+                type="datetime-local"/>
+        </div>
+        <button class="button button-create">
+            Добавить  
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
         </button>
     </form>
 </div>

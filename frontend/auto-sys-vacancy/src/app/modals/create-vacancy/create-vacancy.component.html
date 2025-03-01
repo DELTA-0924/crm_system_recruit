@@ -1,1 +1,62 @@
-<p>create-vacancy works!</p>
+
+<div class="form__wrapper">
+    <button class="close-btn" (click)="CloseModal()"> 
+        <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12L10 8L6 4" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  
+    </button>
+    <form action="submit_vacancy.php" method="post">
+        <label>Название вакансии: <input type="text" name="job_title" required></label>
+        
+     
+        <label>Описание вакансии: <textarea name="description" required></textarea></label>
+        
+        <label>Требования: <textarea name="requirements" required></textarea></label>
+        
+        <label>Обязанности: <textarea name="responsibilities" required></textarea></label>
+        
+        <label>Условия работы: <textarea name="conditions" required></textarea></label>
+        
+        <label>Формат работы:
+            <select name="work_format">
+                <option value="remote">Удалённо</option>
+                <option value="office">Офис</option>
+                <option value="hybrid">Гибрид</option>
+            </select>
+        </label> 
+
+        <label>Зарплата от: <input type="number" name="salary_min"></label>
+        <label>до: <input type="number" name="salary_max"></label>
+        
+     
+        
+      
+        
+        <label>Тип занятости:
+            <select name="employment_type">
+                <option value="full">Полный день</option>
+                <option value="part">Частичная занятость</option>
+                <option value="project">Проектная работа</option>
+                <option value="internship">Стажировка</option>
+            </select>
+        </label>
+        
+        <label>Опыт работы:
+            <select name="experience">
+                <option value="no_experience">Без опыта</option>
+                <option value="1_year">От 1 года</option>
+                <option value="3_years">От 3 лет</option>
+            </select>
+        </label>
+        
+        <label>Контактный email: <input type="email" name="contact_email" required></label>
+        
+        <label>Телефон: <input type="tel" name="contact_phone"></label>
+        
+        <button type="submit">Создать вакансию</button>
+    </form>
+</div>
