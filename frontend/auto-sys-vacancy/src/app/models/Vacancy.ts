@@ -1,14 +1,15 @@
 export interface Vacancy{
+    id:number;
     vacancyId:number;
-    name:string;
+    vacancyTitle:string;
     description:string;
-    requirement:string;
+    requirements:string;
     responsibilities:string;
-    format:string;
-    salary_from:number;
-    salary_up_to:number;
-    type:string;
+    conditions:string;
+    salaryMin:number;
+    salaryMax:number;
+    employment_type:string;
     experience:string;
-    email:string;
-    number:string;
+    contactEmail:string;
+    contactPhone:string;
 }

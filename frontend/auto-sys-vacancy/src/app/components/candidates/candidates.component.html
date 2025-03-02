@@ -1,21 +1,29 @@
 <div class="content-wrapper">
     <div class="content-header">
-      <p>All Candidates</p>
+      <p>Список кандидатов</p>
       <div class="content-utils">
         <input class="content-search">
         <select class="content-orderby">
-          <option value=" newest">Newest</option>
-          <option value=" older">Older</option>            
+          <option value=" newest">Новые</option>
+          <option value=" older">Старые</option>            
         </select>
       </div>
       
     </div>
     <div class="content-table">
-      <p>Candidate Name </p>
-      <p>Age</p>
-      <p>Phone Number</p>
+      <p>Имя Кандидата </p>
+      <p>Возраст</p>
+      <p>Номер телефона</p>
       <p>Email</p>
-      <p>Country</p>
-      <p>Status</p>
+      <p>Локация</p>
+      <p>Статус</p>
+    </div>
+    <div *ngFor="let candidate of candidates" class="candidate-row">
+      <p>{{ candidate.name }}  - {{ candidate.surName }} </p>
+      <p>{{ candidate.age }}</p>
+      <p>{{candidate.phone}}</p>
+      <p>{{ candidate.email }}
+      <p>{{ candidate.location }}</p>
+      <p>{{candidate.status}}</p>
     </div>
   </div>  

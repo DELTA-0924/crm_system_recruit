@@ -4,10 +4,11 @@
     padding-inline: 20px;
     background-color: white;
     display: grid;    
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 20% repeat(2,1fr);
     column-gap: 100px;
     row-gap: 30px;
     border-radius: 10px;    
+    height: max-content;
     .content-header{
         display: flex;
         justify-content: space-between;
@@ -75,4 +76,18 @@
         grid-template-columns: repeat(6,1fr);
         border-bottom:  #9197B3 2px solid;;
     }
+    .vacancy-row {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      
+        p {
+          color: black;
+        }
+      }
+      
 }
+
+

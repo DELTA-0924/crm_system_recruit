@@ -1,20 +1,28 @@
 <div class="content-wrapper">
     <div class="content-header">
-      <p>All Vacancies</p>
+      <p>Список вакансий</p>
       <div class="content-utils">
         <input class="content-search">
         <select class="content-orderby">
-          <option value=" newest">Newest</option>
-          <option value=" older">Older</option>            
+          <option value=" newest">Новые</option>
+          <option value=" older">Старые</option>            
         </select>
       </div>      
     </div>
     <div class="content-table">
-      <p>Vacancy Name </p>
-      <p>Type Work</p>
-      <p>Salary</p>
-      <p>Required Experience</p>
-      <p>Date Publish</p>
-      <p>Status</p>
+      <p>Название вакансии</p>
+      <p>Тип занятости</p>
+      <p>Зарплата</p>
+      <p>Опыт работы</p>
+      <p>Дата публикации</p>
+      <p>Статус</p>     
+    </div>
+    <div *ngFor="let vacancy of vacancies" class="vacancy-row">
+      <p>{{ vacancy.vacancyTitle }}</p>
+      <p>{{ vacancy.employment_type }}</p>
+      <p>{{ vacancy.salaryMin }} - {{ vacancy.salaryMax }} ₽</p>
+      <p>{{ vacancy.experience }}</p>
+      <p>Дата будет позже</p> <!-- Нужно добавить дату в модель -->
+      <p>Открыта</p> <!-- Нужно добавить статус в модель -->
     </div>
   </div>  

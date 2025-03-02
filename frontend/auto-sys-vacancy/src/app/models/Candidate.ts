@@ -1,11 +1,15 @@
 export interface Candidate{
-    candidateId:number;
-    surname:string;
-    namestring:string;
-    number:string;
+    id?:number;
+    candidateId?:number;
+    name:string;
+    surName:string;
+    phone:string;
     age:number;
     status:string;
     location:string;
-    note:string;
-    date:string;
+    aboutme:string;
+    meetDate:string;
+    dateNote:string
+    email:string
+    
 }

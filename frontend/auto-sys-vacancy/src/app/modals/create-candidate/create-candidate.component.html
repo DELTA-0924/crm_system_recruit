@@ -12,7 +12,7 @@
     <form class="form__inner" [formGroup]="CandidateForm" (ngSubmit)="CreateCandidate()">
         <div class="form__inner-number">
             <label >
-                Номер Телефона                
+                Номер Телефона:
             </label>
             <ngx-intl-tel-input
             [cssClass]="'custom'"
@@ -37,21 +37,22 @@
         </div>
         <div class ="form__inner__info">
             <label>
-                Базовая инормация
+                Базовая инормация:
             </label>
             <div class="info-wrapper">
                 <input type="text" class="info-name" placeholder="Имя" formControlName="name">
                 <input type="text" class="info-suranme" placeholder="Фамилия" formControlName="surName">
                 <input type="number" placeholder="возраст" formControlName="age">
+                <input type="text" placeholder="email" formControlName="email">
             </div>            
         </div>
         <div class="form__inner-location">
             <label>
-                Location
+                Локация:
             </label>
             <div style="display: flex; column-gap: 10px;">
                 <img src="../../../assets/icons/location.svg"  width="25" height="25">
-                <select class="select-location">                      
+                <select class="select-location" formControlName="location">                      
                     <option selected> Область 1</option>
                     <option > Область 2</option>
                     <option > Область 3</option>
@@ -61,17 +62,20 @@
         </div>
         <div class="form__inner-aboutme">
             <label>
-                Детальная информа
+                Детальная информация кандидате:
             </label>
             <textarea class="textarea-aboutme" formControlName="aboutme">
 
             </textarea>
         </div>
         <div style="display: flex; column-gap:10px">
-            Дата встречи
+            Дата встречи:
             <input 
-                type="datetime-local"/>
+                type="datetime-local" formControlName="meetDate"/>
+                <textarea></textarea>
         </div>
+        <label for="dateNote"> Примечание встречи:</label>
+        <textarea id="dateNote" formControlName="dateNote"></textarea>
         <button class="button button-create">
             Добавить  
             <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

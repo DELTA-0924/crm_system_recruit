@@ -1,6 +1,8 @@
 import { Component,Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TestVacanciesService } from '../../services/test-vacancy.service';
+import { Vacancy } from '../../models/Vacancy';
 @Component({
   selector: 'app-create-vacancy',
   imports: [ReactiveFormsModule, CommonModule],
@@ -9,11 +11,11 @@ import { CommonModule } from '@angular/common';
 })
 export class CreateVacancyComponent {
  @Output() CloseEvent=new EventEmitter();
- jobForm: FormGroup;
+ vacancyForm: FormGroup;
 
- constructor(private fb: FormBuilder) {
-   this.jobForm = this.fb.group({
-     jobTitle: ['', Validators.required],
+ constructor(private fb: FormBuilder,private vacanciesService: TestVacanciesService) {
+   this.vacancyForm = this.fb.group({
+     vacancyTitle: ['', Validators.required],
      description: ['', Validators.required],
      requirements:['',Validators.required],
      responsibilities:['',Validators.required],
@@ -21,16 +23,20 @@ export class CreateVacancyComponent {
      salaryMin: [null, [Validators.required, Validators.min(0)]],
      salaryMax: [null, [Validators.required]],
      contactEmail: ['', [Validators.required, Validators.email]],
-     contactPhone: ['', [Validators.pattern(/^\+?[0-9\s\-()]+$/)]]
+     contactPhone: ['', [Validators.pattern(/^\+?[0-9\s\-()]+$/)]],
+       employment_type: ['full', Validators.required], // По умолчанию "Полный день"
+  experience: ['no_experience', Validators.required] // По умолчанию "Без опыта"
    });
  }
  CloseModal(){
   this.CloseEvent.emit()
  }
  onSubmit():void {
-    console.log(this.jobForm.value)
-    console.log(this.jobForm.status)
-    console.log(this.jobForm.errors)
-     this.jobForm.reset();
+    if (this.vacancyForm.valid) {
+      const newVacancy: Vacancy = this.vacancyForm.value;
+      console.log(newVacancy)
+      this.vacanciesService.createVacancy(newVacancy);
+      this.vacancyForm.reset(); // Очистить форму
+    }
  }
 }

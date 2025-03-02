@@ -9,10 +9,10 @@
                   
     </button>
 
-    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()">
       <label>
         Название вакансии:
-        <input type="text" formControlName="jobTitle" />
+        <input type="text" formControlName="vacancyTitle" />
 
       </label>
 
@@ -65,7 +65,7 @@
       
         
       <label>Тип занятости:
-        <select name="employment_type">
+        <select name="employment_type" formControlName="employment_type">
             <option value="full">Полный день</option>
             <option value="part">Частичная занятость</option>
             <option value="project">Проектная работа</option>
@@ -74,7 +74,7 @@
     </label>
     
     <label>Опыт работы:
-        <select name="experience">
+        <select name="experience" formControlName="experience">
             <option value="no_experience">Без опыта</option>
             <option value="1_year">От 1 года</option>
             <option value="3_years">От 3 лет</option>
