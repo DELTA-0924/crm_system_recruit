@@ -9,7 +9,7 @@
                 </svg>
                   
     </button>
-    <form class="form__inner" [formGroup]="phoneForm">
+    <form class="form__inner" [formGroup]="CandidateForm" (ngSubmit)="CreateCandidate()">
         <div class="form__inner-number">
             <label >
                 Номер Телефона                
@@ -37,12 +37,12 @@
         </div>
         <div class ="form__inner__info">
             <label>
-                Имя,Фамилия
+                Базовая инормация
             </label>
             <div class="info-wrapper">
-                <input type="text" class="info-name">
-                <input type="text" class="info-suranme">
-
+                <input type="text" class="info-name" placeholder="Имя" formControlName="name">
+                <input type="text" class="info-suranme" placeholder="Фамилия" formControlName="surName">
+                <input type="number" placeholder="возраст" formControlName="age">
             </div>            
         </div>
         <div class="form__inner-location">
@@ -63,7 +63,7 @@
             <label>
                 Детальная информа
             </label>
-            <textarea class="textarea-aboutme">
+            <textarea class="textarea-aboutme" formControlName="aboutme">
 
             </textarea>
         </div>

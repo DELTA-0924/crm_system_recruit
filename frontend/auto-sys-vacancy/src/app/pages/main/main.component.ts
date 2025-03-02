@@ -1,6 +1,6 @@
 
 import { Component,ComponentRef,Type,ViewChild, ViewContainerRef } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import {CandidatesComponent }from "../../components/candidates/candidates.component"
 import { VacanciesComponent } from "../../components/vacancies/vacancies.component"; 
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { CreateCandidateComponent } from '../../modals/create-candidate/create-c
 import { CreateVacancyComponent } from '../../modals/create-vacancy/create-vacancy.component';
 @Component({
   selector: 'app-main',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })

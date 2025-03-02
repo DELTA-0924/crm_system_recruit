@@ -4,7 +4,11 @@
     grid-template-columns: 20% 80%;
     background:linear-gradient(to right,#D3FFE7 20%,#EFFFF6 80%,55deg) ;
     .side-bar{
-        
+        .logout-icon{
+            position: absolute;
+            bottom: 5px;
+            rotate:180deg;
+        }
         width: 100%;
         height:100vh;
         background-color: white;

@@ -22,6 +22,7 @@
             row-gap: 20px;
             padding: 20px 20px;
             grid-template-rows: repeat(3,2fr) 3fr;
+       
             input{
                 border: 0.5px gray solid;
                 border-radius: 5px;
@@ -88,4 +89,9 @@ width: 100%;
 .iti__country-list{
     overflow-y: auto;
     max-height: 200px;
+}
+
+.info-wrapper{
+    display: flex;
+    column-gap: 20px;
 }

@@ -1,10 +1,20 @@
 <div class="main-wrapper">
     <div class="main-inner">
-        <form action="" class="form-register">
-            <label>Логин :<input type="text"></label>
-            <label>Пароль :<input type="password"></label>
-            <label>Подтвердите Пароль :<input type="password"></label>
-            <button type="submit">Создать вакансию</button>
+        <form  [formGroup]="userForm" (ngSubmit)="submitForm()" class="form-register">
+            <label>Логин :<input type="text" formControlName="login"></label>
+            <div style="color:red;font-style: italic;" *ngIf="userForm.controls['login'].invalid && userForm.controls['login'].touched">
+                Логин обязательно (мин. 4 символа,макс 18 сиволов) 
+            </div>
+            <label>Пароль :<input type="password" formControlName="password"></label>
+            <div style="color:red;font-style: italic;" *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+                Пароль обязательно (мин. 4 символа,макс 12 сиволов) 
+            </div>
+            <label>Подтвердите Пароль :<input type="password" formControlName="verifyPassword"></label>
+            <div style="color:red;font-style: italic;" *ngIf="verifedPassword">
+                Пароли не совпадают
+            </div>
+            <button type="submit">Зарегистрироваться</button>
         </form>
+        <a [routerLink]="['/login']">Уже есть аккаунт</a>
     </div>
 </div>

@@ -12,19 +12,28 @@ import { NgxIntlTelInputModule,SearchCountryField, CountryISO, PhoneNumberFormat
 })
 export class CreateCandidateComponent {
 	@Output() CloseEvent=new EventEmitter<void>();
+
+	separateDialCode = false;
+	SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  	PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+	CandidateForm=new FormGroup({
+		phone: new FormControl(undefined, [Validators.required]),
+		name:new FormControl('',[Validators.minLength(3),Validators.maxLength(12),Validators.required]),
+		surName:new FormControl('',[Validators.minLength(3),Validators.maxLength(12),Validators.required]),
+		age:new FormControl('',[Validators.min(18),Validators.max(64),Validators.required]),
+		aboutme:new FormControl('',[Validators.maxLength(180)])
+	})
+	changePreferredCountries() {
+		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+	}
 	CloseModal(){
 		this.CloseEvent.emit()
 		console.log("close event on candidate")
 	}
-	separateDialCode = false;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-	phoneForm = new FormGroup({
-		phone: new FormControl(undefined, [Validators.required])
-	});
-	changePreferredCountries() {
-		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+	CreateCandidate():void{
+		console.log(this.CandidateForm.value)
+		this.CandidateForm.reset();
 	}
 }

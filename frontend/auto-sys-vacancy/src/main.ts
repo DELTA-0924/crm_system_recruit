@@ -9,7 +9,7 @@ import { VacanciesComponent } from './app/components/vacancies/vacancies.compone
 import { provideRouter } from '@angular/router';
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter([]),
+
     provideAnimations(),
     ...appConfig.providers // Если в `appConfig` есть другие провайдеры
   ]
