@@ -3,10 +3,11 @@ import { FormGroup, FormControl, Validators,FormsModule,ReactiveFormsModule, For
 import { NgxIntlTelInputModule,SearchCountryField, CountryISO, PhoneNumberFormat  } from 'ngx-intl-tel-input';
 import { TestCandidateService } from '../../services/test-candidate.service';
 import { Candidate } from '../../models/Candidate';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-candidate',
-  imports: [NgxIntlTelInputModule,	FormsModule,ReactiveFormsModule],
+  imports: [NgxIntlTelInputModule,	FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './create-candidate.component.html',
   styleUrl: './create-candidate.component.scss',
   encapsulation:ViewEncapsulation.None
@@ -14,20 +15,19 @@ import { Candidate } from '../../models/Candidate';
 })
 export class CreateCandidateComponent {
 	@Output() CloseEvent=new EventEmitter<void>();
+	submitted=false;
 	CandidateForm:FormGroup;
 	constructor(private fb: FormBuilder,private candidateServices:TestCandidateService){
 		this.CandidateForm= this.fb.group({
 			phone: new FormControl(undefined, [Validators.required]),
-			name:new FormControl('',[Validators.minLength(3),Validators.maxLength(12),Validators.required]),
-			surName:new FormControl('',[Validators.minLength(3),Validators.maxLength(12),Validators.required]),
-			age:new FormControl('',[Validators.min(18),Validators.max(64),Validators.required]),
+			fullname:new FormControl('',[Validators.minLength(3),Validators.maxLength(52),Validators.required]),					
 			meetDate:new FormControl(''),
 			dateNote:new FormControl(''),
-			aboutme:new FormControl('',[Validators.maxLength(180)]),
+			detail:new FormControl('',[Validators.maxLength(180)]),
 			email:new FormControl('',[Validators.required,Validators.email]),
-			status:new FormControl('invited'),
-			location:new FormControl('',[Validators.required]),
-	
+			status:new FormControl('',[Validators.required]),
+			education:new FormControl('',[Validators.required]),	
+			experience:new FormControl('',[Validators.required]),	
 		})
 	}
 	separateDialCode = false;
@@ -44,11 +44,16 @@ export class CreateCandidateComponent {
 		console.log("close event on candidate")
 	}
 	CreateCandidate():void{
+		
 		if (this.CandidateForm.valid) {
-			const newCandidate: Candidate = this.CandidateForm.value;
+			let newCandidate: Candidate = this.CandidateForm.value;
+			newCandidate.phone=this.CandidateForm.value.phone.internationalNumber;
+
 			console.log(newCandidate)
 			this.candidateServices.createCandidate(newCandidate);
 			this.CandidateForm.reset(); // Очистить форму
+			this.submitted=false
 			}
+			this.submitted=true
 	}
 }

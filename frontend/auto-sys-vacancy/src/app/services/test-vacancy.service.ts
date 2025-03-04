@@ -9,12 +9,19 @@ import { Vacancy } from '../models/Vacancy';
 })
 export class TestVacanciesService {
   private vacancies: Vacancy[] = [
-    { 
-      id: 1, vacancyId: 101, vacancyTitle: "Frontend Developer", description: "",
-      requirements: "", responsibilities: "", conditions: "Remote", salaryMin: 80000,
-      salaryMax: 120000, employment_type: "Full-time", experience: "1-3 года",
-      contactEmail: "hr@example.com", contactPhone: "+7 900 123-45-67"
-    },
+    {
+      id: 1,
+      vacancyTitle: "Frontend Developer",
+      age: 25,
+      requirements: "Опыт работы с Angular, TypeScript, знание HTML, CSS, REST API",
+      conditions: "Удаленная работа, гибкий график, официальное трудоустройство",
+      skills: "Angular, TypeScript, RxJS, SCSS, Git",
+      education: "Высшее техническое",
+      contactEmail: "hr@example.com",
+      contactPhone: "+7 (999) 123-45-67",
+      datePublish: "2024-03-04",
+      details:"sdgfsdg dfhgdgh dfghdh"
+    }
   ];
   private vacanciesSubject = new BehaviorSubject<Vacancy[]>(this.vacancies);
 

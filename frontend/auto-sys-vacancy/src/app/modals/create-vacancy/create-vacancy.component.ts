@@ -12,31 +12,34 @@ import { Vacancy } from '../../models/Vacancy';
 export class CreateVacancyComponent {
  @Output() CloseEvent=new EventEmitter();
  vacancyForm: FormGroup;
-
+ submitted=false;
  constructor(private fb: FormBuilder,private vacanciesService: TestVacanciesService) {
    this.vacancyForm = this.fb.group({
      vacancyTitle: ['', Validators.required],
-     description: ['', Validators.required],
      requirements:['',Validators.required],
-     responsibilities:['',Validators.required],
      conditions:['',Validators.required],
-     salaryMin: [null, [Validators.required, Validators.min(0)]],
-     salaryMax: [null, [Validators.required]],
      contactEmail: ['', [Validators.required, Validators.email]],
-     contactPhone: ['', [Validators.pattern(/^\+?[0-9\s\-()]+$/)]],
-       employment_type: ['full', Validators.required], // По умолчанию "Полный день"
-  experience: ['no_experience', Validators.required] // По умолчанию "Без опыта"
+     contactPhone: ['', [Validators.required,Validators.pattern(/^\+?[0-9\s\-()]+$/)]],
+     age: ['', [Validators.max(100),Validators.min(0),Validators.required]],
+     skills: ['', [Validators.required]],
+     datePublish: ['', [Validators.required]],
+     details:[''],
+     education:['',[Validators.required]]
    });
  }
  CloseModal(){
   this.CloseEvent.emit()
  }
  onSubmit():void {
+  
+
     if (this.vacancyForm.valid) {
       const newVacancy: Vacancy = this.vacancyForm.value;
       console.log(newVacancy)
       this.vacanciesService.createVacancy(newVacancy);
       this.vacancyForm.reset(); // Очистить форму
+      this.submitted=false
     }
+    this.submitted=true;
  }
 }

@@ -11,19 +11,19 @@
       
     </div>
     <div class="content-table">
-      <p>Имя Кандидата </p>
-      <p>Возраст</p>
+      <p>ФИО Кандидата </p>      
       <p>Номер телефона</p>
       <p>Email</p>
-      <p>Локация</p>
+      <p>Образование</p>
+      <p>Дата встречи</p>
       <p>Статус</p>
     </div>
     <div *ngFor="let candidate of candidates" class="candidate-row">
-      <p>{{ candidate.name }}  - {{ candidate.surName }} </p>
-      <p>{{ candidate.age }}</p>
+      <p>{{ candidate.fullname }} </p>      
       <p>{{candidate.phone}}</p>
       <p>{{ candidate.email }}
-      <p>{{ candidate.location }}</p>
+      <p>{{ candidate.education }}</p>      
+      <p>{{ candidate.meetDate }}</p>
       <p>{{candidate.status}}</p>
     </div>
   </div>  

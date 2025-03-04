@@ -34,37 +34,51 @@
             formControlName="phone" width="100%"
         >
         </ngx-intl-tel-input>
+        <div *ngIf="submitted && CandidateForm.controls['phone'].invalid && CandidateForm.controls['phone'].touched" class="error-message">
+            Номер телефона невалиден
+        </div>
         </div>
         <div class ="form__inner__info">
             <label>
                 Базовая инормация:
             </label>
             <div class="info-wrapper">
-                <input type="text" class="info-name" placeholder="Имя" formControlName="name">
-                <input type="text" class="info-suranme" placeholder="Фамилия" formControlName="surName">
-                <input type="number" placeholder="возраст" formControlName="age">
-                <input type="text" placeholder="email" formControlName="email">
+                <input type="text" class="info-name" placeholder="ФИО" formControlName="fullname">                          
+                <input type="text" placeholder="email" formControlName="email">               
+                <div *ngIf="submitted && CandidateForm.controls['email'].invalid && CandidateForm.controls['email'].touched" class="error-message">
+                    Введите корректный email
+                </div>      
             </div>            
         </div>
         <div class="form__inner-location">
+            <label>Опыт работы:
+                <select name="experience" formControlName="experience">
+                    <option value="no_experience" selected>Без опыта</option>
+                    <option value="1_year">От 1 года</option>
+                    <option value="3_years">От 3 лет</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form__inner-location">
             <label>
-                Локация:
+                Образование:
             </label>
             <div style="display: flex; column-gap: 10px;">
                 <img src="../../../assets/icons/location.svg"  width="25" height="25">
-                <select class="select-location" formControlName="location">                      
-                    <option selected> Область 1</option>
-                    <option > Область 2</option>
-                    <option > Область 3</option>
-                    <option > Область 4<option>
+                <select class="select-location" formControlName="education">                      
+                    <option  value ="Higher" selected> Высшее</option>
+                    <option value="Middle-specials"> Средне специальное</option>
+                    <option value="Middle"> Среднее</option>
+                    <option  valiue="No"> Нет<option>
                 </select>
         </div>
         </div>
         <div class="form__inner-aboutme">
             <label>
-                Детальная информация кандидате:
+               Примечание кандидата:
             </label>
-            <textarea class="textarea-aboutme" formControlName="aboutme">
+            <textarea class="textarea-aboutme" formControlName="detail">
 
             </textarea>
         </div>
@@ -72,7 +86,17 @@
             Дата встречи:
             <input 
                 type="datetime-local" formControlName="meetDate"/>
-                <textarea></textarea>
+                <div class="form__inner-location">
+                    <label>Статус кандидата
+                        <select name="status" formControlName="status">
+                            <option value="in_wait" selected>В ожиданни</option>
+                            <option value="processing">В обработке</option>
+                            <option value="onMeet">На собесе</option>
+                            <option value="offer">Получен оффер</option>
+                        </select>
+                    </label>
+                </div>
+        
         </div>
         <label for="dateNote"> Примечание встречи:</label>
         <textarea id="dateNote" formControlName="dateNote"></textarea>

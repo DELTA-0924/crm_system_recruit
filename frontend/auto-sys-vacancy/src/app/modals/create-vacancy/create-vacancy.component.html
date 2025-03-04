@@ -16,29 +16,45 @@
 
       </label>
 
-      <label>
+      <!-- <label>
         Описание вакансии:
         <textarea formControlName="description"></textarea>
 
-      </label>
+      </label> -->
 
       <label>Требования: <textarea name="requirements"  formControlName="requirements"></textarea></label>
         
-      <label>Обязанности: <textarea name="responsibilities" formControlName="responsibilities"></textarea></label>
-      
-      <label>Условия работы: <textarea name="conditions" formControlName="conditions"></textarea></label>
-
-
-      <label>Формат работы:
-        <select name="work_format">
+      <!-- <label>Обязанности: <textarea name="responsibilities" formControlName="responsibilities"></textarea></label> -->
+      <label> Возраст <input type="number" formControlName="age">
+        <div *ngIf="submitted && vacancyForm.controls['age'].invalid && vacancyForm.controls['age'].touched" class="error-message">
+          Введите корректный возраст 
+      </div>      
+      </label>
+      <label> Навыки <textarea formControlName="skills"></textarea></label>
+      <label>Условия работы
+        <select name="work_format" formControlName="conditions">
             <option value="remote">Удалённо</option>
             <option value="office">Офис</option>
             <option value="hybrid">Гибрид</option>
         </select>
     </label> 
+    
+    
+  
+  <label>
+    Образование:
+  <div style="display: flex; column-gap: 10px;">
+      
+      <select class="select-location" formControlName="education">                      
+          <option  value ="Higher" selected> Высшее</option>
+          <option value="Middle-specials"> Средне специальное</option>
+          <option value="Middle"> Среднее</option>
+          <option  valiue="No"> Нет<option>
+      </select>
+  </div>
+</label>
 
-
-
+<!-- 
       <label>
         Зарплата от:
         <input type="number" formControlName="salaryMin" />
@@ -48,23 +64,31 @@
       <label>
         Зарплата до:
         <input type="number" formControlName="salaryMax" />
-  
+   
       </label>
-
+    -->
+      <label>Примечания <textarea formControlName="details"> </textarea></label>
       <label>
         Контактный email:
         <input type="email" formControlName="contactEmail" />
-
+        <div *ngIf="submitted && vacancyForm.controls['contactEmail'].invalid && vacancyForm.controls['contactEmail'].touched" class="error-message">
+          Введите корректный email
+      </div>      
       </label>
 
       <label>
         Телефон:
         <input type="tel" formControlName="contactPhone" />
+        <div *ngIf="submitted && vacancyForm.controls['contactPhone'].invalid && vacancyForm.controls['contactPhone'].touched" class="error-message">
+          Номер телефона невалиден
+      </div>
       </label>
-
-      
+      <label>Дата встречи:
+      <input 
+          type="datetime-local" formControlName="datePublish"/>
+        </label>
         
-      <label>Тип занятости:
+      <!-- <label>Тип занятости:
         <select name="employment_type" formControlName="employment_type">
             <option value="full">Полный день</option>
             <option value="part">Частичная занятость</option>
@@ -72,14 +96,14 @@
             <option value="internship">Стажировка</option>
         </select>
     </label>
-    
-    <label>Опыт работы:
+     -->
+    <!-- <label>Опыт работы:
         <select name="experience" formControlName="experience">
             <option value="no_experience">Без опыта</option>
             <option value="1_year">От 1 года</option>
             <option value="3_years">От 3 лет</option>
         </select>
-    </label>
+    </label> -->
 
       <button type="submit" >Создать вакансию</button>
     </form>
