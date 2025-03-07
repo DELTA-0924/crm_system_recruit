@@ -2,11 +2,10 @@
     box-shadow: 0 0 10px 5px #D3FFE7;
     padding-block: 20px;
     padding-inline: 20px;
-    background-color: white;
-    display: grid;    
-    grid-template-rows: 20% repeat(2,1fr);
+    background-color: white;        
     column-gap: 100px;
     row-gap: 30px;
+    
     border-radius: 10px;    
     .content-header{
         display: flex;
@@ -86,4 +85,9 @@
           color: black;
         }
       }
+}
+.detail-modal{
+    position: absolute;
+    top: 5%;
+    left: 30%;
 }

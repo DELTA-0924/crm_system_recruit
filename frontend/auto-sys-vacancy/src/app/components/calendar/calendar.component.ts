@@ -1,10 +1,11 @@
 import { Component , signal, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import tippy from 'tippy.js';
 
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 @Component({
@@ -35,8 +36,22 @@ export class CalendarComponent {
     dayMaxEvents: true,
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this)
-  
+    eventsSet: this.handleEvents.bind(this),
+    eventDidMount: (info) => {
+      tippy(info.el, {
+        content: info.event.title,
+        placement: 'top',
+        theme: 'custom', // Добавляем кастомную тему
+     
+      });
+    },
+    eventContent: (arg) => {
+      let eventTitle = arg.event.title;
+      if (eventTitle.length > 20) { 
+        eventTitle = eventTitle.substring(0, 20) + "..."; 
+      }
+      return { html: `<div title="${arg.event.title}">${eventTitle}</div>` };
+    }
   });
   currentEvents = signal<EventApi[]>([]);
 
@@ -81,4 +96,5 @@ export class CalendarComponent {
     this.currentEvents.set(events);
     this.changeDetector.detectChanges(); // workaround for pressionChangedAfterItHasBeenCheckedError
   }
+
 }

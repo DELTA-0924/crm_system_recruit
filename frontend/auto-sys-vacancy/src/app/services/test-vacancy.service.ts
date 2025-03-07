@@ -14,12 +14,12 @@ export class TestVacanciesService {
       vacancyTitle: "Frontend Developer",
       age: 25,
       requirements: "Опыт работы с Angular, TypeScript, знание HTML, CSS, REST API",
-      conditions: "Удаленная работа, гибкий график, официальное трудоустройство",
+      conditions: "Удалённо",
       skills: "Angular, TypeScript, RxJS, SCSS, Git",
-      education: "Высшее техническое",
+      education: "Высшее",
       contactEmail: "hr@example.com",
       contactPhone: "+7 (999) 123-45-67",
-      datePublish: "2024-03-04",
+      datePublish: "2024-12-01T15:00",
       details:"sdgfsdg dfhgdgh dfghdh"
     }
   ];

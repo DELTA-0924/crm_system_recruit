@@ -17,7 +17,7 @@
       <p>Условия работы</p>
       <p>Дата публикации</p>     
     </div>
-    <div *ngFor="let vacancy of vacancies" class="vacancy-row">
+    <div *ngFor="let vacancy of vacancies$|async" class="vacancy-row" (click)="OpenDetail(vacancy)">
       <p>{{ vacancy.vacancyTitle }}</p>
       <p>{{ vacancy.age }}</p>
       <p>{{ vacancy.education }} </p>
@@ -26,3 +26,9 @@
       <p>{{ vacancy.datePublish }}</p>    
     </div>
   </div>  
+  <div class="detail-modal">
+    <app-create-vacancy
+    *ngIf="isDetailOpen"
+    [vacancy]="selectedVacancy"  
+    (CloseEvent)="CloseDetail()">
+    <app-create-vacancy>

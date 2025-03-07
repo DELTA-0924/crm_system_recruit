@@ -34,7 +34,8 @@
             ],
             "styles": [
               "./node_modules/intl-tel-input/build/css/intlTelInput.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/tippy.js/dist/tippy.css"
             ],
             "scripts": []
           },

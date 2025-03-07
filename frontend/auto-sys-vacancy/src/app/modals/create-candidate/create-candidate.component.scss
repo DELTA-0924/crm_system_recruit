@@ -18,11 +18,19 @@
         border:2px gray solid;
 
         .form__inner{
-            display: grid;
-            row-gap: 20px;
-            padding: 20px 20px;
-            grid-template-rows: repeat(3,2fr) 3fr;
-       
+            label{
+                font-weight: 700;
+                margin-block: 10px;
+            }
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            padding: 10px 10px;            
+            padding-right: 50px;
+            padding-top: 30px;
+            height: min-content;
+            max-height: 100%;
+            overflow-y: auto;
             input{
                 border: 0.5px gray solid;
                 border-radius: 5px;
@@ -31,19 +39,23 @@
             input::placeholder{
                 color:gray
             }
+
             &-number{
                 display: flex;
                 flex-direction: column;            
+                border-bottom: 1px gray solid;
             }
             &-aboutme{
                 display: flex;
                 flex-direction: column;
+                border-bottom: 1px gray solid;
             }
             &-location{
                 display: flex;
                 flex-direction: column;
+                border-bottom: 1px gray solid;
             }
-            .select-location{
+            select{
                 height:30px;
                 width: 100%;
                 outline: none;
@@ -98,5 +110,15 @@ width: 100%;
 .error-message{
     color: red;
     font-style: italic;
+    
+}
+.detail-modal{
+    position: absolute;
+    top: 10%;
+    right: 20%;
+}
+span{
+    font-family: 'Poppins-Semibold';
+    font-weight: '600';
     
 }

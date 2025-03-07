@@ -6,7 +6,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     border:2px gray solid;
-    
+    overflow: auto;
 }
 
 .close-btn{
@@ -24,6 +24,7 @@
 }
 
 form{
+    margin: 10px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     column-gap: 20px;
@@ -64,6 +65,9 @@ form button {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 form button:hover {

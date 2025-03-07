@@ -11,32 +11,40 @@
     </button>
     <form class="form__inner" [formGroup]="CandidateForm" (ngSubmit)="CreateCandidate()">
         <div class="form__inner-number">
-            <label >
-                Номер Телефона:
-            </label>
-            <ngx-intl-tel-input
-            [cssClass]="'custom'"
-            [preferredCountries]="preferredCountries"
-            [enableAutoCountrySelect]="true"
-            [enablePlaceholder]="true"
-            [searchCountryFlag]="true"
-            [searchCountryField]="[
-            SearchCountryField.Iso2,
-            SearchCountryField.Name
-            ]"
-            [selectFirstCountry]="false"
-            [selectedCountryISO]="CountryISO.India"
-            [maxLength]="15"
-            [phoneValidation]="true"
-            [separateDialCode]="separateDialCode"
-            [numberFormat]="PhoneNumberFormat.National"
-            name="phone"
-            formControlName="phone" width="100%"
-        >
-        </ngx-intl-tel-input>
-        <div *ngIf="submitted && CandidateForm.controls['phone'].invalid && CandidateForm.controls['phone'].touched" class="error-message">
-            Номер телефона невалиден
-        </div>
+                    <label class="label">
+                        <span >Номер Телефона:</span>
+                    </label>
+                    <ngx-intl-tel-input
+                    [cssClass]="'custom'"
+                    [preferredCountries]="preferredCountries"
+                    [enableAutoCountrySelect]="true"
+                    [enablePlaceholder]="true"
+                    [searchCountryFlag]="true"
+                    [searchCountryField]="[
+                    SearchCountryField.Iso2,
+                    SearchCountryField.Name
+                    ]"
+                    [selectFirstCountry]="false"
+                    [selectedCountryISO]="CountryISO.India"
+                    [maxLength]="15"
+                    [phoneValidation]="true"
+                    [separateDialCode]="separateDialCode"
+                    [numberFormat]="PhoneNumberFormat.National"
+                    name="phone"
+                    formControlName="phone" width="100%"
+                >
+                </ngx-intl-tel-input>
+                <div *ngIf="submitted && CandidateForm.controls['phone'].invalid && CandidateForm.controls['phone'].touched" class="error-message">
+                    Номер телефона невалиден
+                </div>
+                <label for="phone2">
+                    Второй телефон телефон:
+                </label>
+                    <input type="tel" formControlName="phone2" id="phone2"/>
+                    <div *ngIf="submitted && CandidateForm.controls['phone2'].invalid && CandidateForm.controls['phone2'].touched" class="error-message">
+                    Номер телефона невалиден
+                    </div>
+        
         </div>
         <div class ="form__inner__info">
             <label>
@@ -51,29 +59,28 @@
             </div>            
         </div>
         <div class="form__inner-location">
-            <label>Опыт работы:
-                <select name="experience" formControlName="experience">
+            <label id="experience">Опыт работы:</label>
+                <select  id="experience" name="experience" formControlName="experience">
                     <option value="no_experience" selected>Без опыта</option>
                     <option value="1_year">От 1 года</option>
                     <option value="3_years">От 3 лет</option>
                 </select>
-            </label>
+            
+
+           
+            <div class="form__inner-location">
+                <label for="education">
+                    Образование:
+                </label>
+                <select  id="education" class="select-location" formControlName="education">                      
+                    <option  value ="Высшее" selected> Высшее</option>
+                    <option value="Средне специальное"> Средне специальное</option>
+                    <option value="Среднее"> Среднее</option>
+                    <option  valiue="Нет"> Нет<option>
+                </select>
+            </div>
         </div>
 
-        <div class="form__inner-location">
-            <label>
-                Образование:
-            </label>
-            <div style="display: flex; column-gap: 10px;">
-                <img src="../../../assets/icons/location.svg"  width="25" height="25">
-                <select class="select-location" formControlName="education">                      
-                    <option  value ="Higher" selected> Высшее</option>
-                    <option value="Middle-specials"> Средне специальное</option>
-                    <option value="Middle"> Среднее</option>
-                    <option  valiue="No"> Нет<option>
-                </select>
-        </div>
-        </div>
         <div class="form__inner-aboutme">
             <label>
                Примечание кандидата:
@@ -82,30 +89,40 @@
 
             </textarea>
         </div>
-        <div style="display: flex; column-gap:10px">
-            Дата встречи:
-            <input 
-                type="datetime-local" formControlName="meetDate"/>
-                <div class="form__inner-location">
-                    <label>Статус кандидата
-                        <select name="status" formControlName="status">
-                            <option value="in_wait" selected>В ожиданни</option>
-                            <option value="processing">В обработке</option>
-                            <option value="onMeet">На собесе</option>
-                            <option value="offer">Получен оффер</option>
-                        </select>
-                    </label>
-                </div>
-        
+        <div class="form__inner-location">
+            <label for="meetDate">Дата встречи:</label>
+            <input  id="meetDate" type="datetime-local" formControlName="meetDate"/>
+            <label for="dateRec"> Дата отклика на вакансию</label>
+            <input id="dateRec" type="date">
+            <label for="dateNote"> Примечание встречи:</label>    
+                <textarea id="dateNote" formControlName="dateNote"></textarea>                    
         </div>
-        <label for="dateNote"> Примечание встречи:</label>
-        <textarea id="dateNote" formControlName="dateNote"></textarea>
+
+        <div class="form__inner-location">
+            <label for="status">Статус кандидата</label>
+                <select  id="status"name="status" formControlName="status">
+                    <option value="В ожиданни" selected>В ожиданни</option>
+                    <option value="В обработке">В обработке</option>
+                    <option value="На собесе">На собесе</option>
+                    <option value="Получен оффер">Получен оффер</option>
+                </select>
+            
+        </div>
+
+        <div class="form__inner-location">
+            <label for="vacancy">Вакансия</label>
+                <select  id="vacancy"name="vacancy" formControlName="vacancy">
+                    <option *ngFor="let category of categories" [value]="category">
+                        {{ category }}
+                      </option>
+                </select>            
+        </div>
+
         <button class="button button-create">
-            Добавить  
+            {{candidate ? 'Измнеить': 'Создать'}}
             <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                
+                </svg>                
         </button>
     </form>
 </div>

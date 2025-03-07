@@ -3,9 +3,9 @@
       <p>Список кандидатов</p>
       <div class="content-utils">
         <input class="content-search">
-        <select class="content-orderby">
-          <option value=" newest">Новые</option>
-          <option value=" older">Старые</option>            
+        <select class="content-orderby" (change)="OrderBy($event)">
+          <option value="newest">Новые</option>
+          <option value="older">Старые</option>            
         </select>
       </div>
       
@@ -18,7 +18,7 @@
       <p>Дата встречи</p>
       <p>Статус</p>
     </div>
-    <div *ngFor="let candidate of candidates" class="candidate-row">
+    <div *ngFor="let candidate of candidates$ |async" class="candidate-row" (click)="OpenDetail(candidate)">
       <p>{{ candidate.fullname }} </p>      
       <p>{{candidate.phone}}</p>
       <p>{{ candidate.email }}
@@ -26,4 +26,10 @@
       <p>{{ candidate.meetDate }}</p>
       <p>{{candidate.status}}</p>
     </div>
-  </div>  
+  </div>   
+  <div class="detail-modal">
+    <app-create-candidate
+    *ngIf="isDetailOpen"
+    [candidate]="selectedCandidate"  
+    (CloseEvent)="CloseDetail()">
+    <app-create-candidate>
