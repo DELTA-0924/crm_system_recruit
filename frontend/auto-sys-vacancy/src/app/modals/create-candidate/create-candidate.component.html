@@ -93,7 +93,7 @@
             <label for="meetDate">Дата встречи:</label>
             <input  id="meetDate" type="datetime-local" formControlName="meetDate"/>
             <label for="dateRec"> Дата отклика на вакансию</label>
-            <input id="dateRec" type="date">
+            <input id="dateRec" type="date" formControlName="dateRec">
             <label for="dateNote"> Примечание встречи:</label>    
                 <textarea id="dateNote" formControlName="dateNote"></textarea>                    
         </div>
@@ -112,8 +112,8 @@
         <div class="form__inner-location">
             <label for="vacancy">Вакансия</label>
                 <select  id="vacancy"name="vacancy" formControlName="vacancy">
-                    <option *ngFor="let category of categories" [value]="category">
-                        {{ category }}
+                    <option *ngFor="let category of categories$ |async" [value]="category">
+                        {{ category.vacancyTitle }}
                       </option>
                 </select>            
         </div>
@@ -124,5 +124,56 @@
                 <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                
         </button>
+        <button type="button" (click)="onDelete()" class="button-create button-delete" *ngIf="editMode">
+            Удалить
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>     
+                <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>  
+          </button>
+          <button  type="button" (click)="offerModal=!offerModal" class="button-create button-offer" *ngIf="candidate">Дать Оффер
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg> 
+          </button >
     </form>
+    <div class="offer-modal" *ngIf="offerModal" >                        
+        <form class="offer-form"  (ngSubmit)="onSubmitOffer()">
+            
+            <label>
+              Должность:
+              <input type="text" [(ngModel)]="offer.position" name="position" required>
+            </label>
+          
+            <label>
+              Дата начала:
+              <input type="date" [(ngModel)]="offer.startDate" name="startDate" required>
+            </label>
+          
+            <label>
+              Зарплата:
+              <input type="text" [(ngModel)]="offer.salary" name="salary" required>
+            </label>
+          
+            <label>
+              Испытательный срок:
+              <input type="text" [(ngModel)]="offer.probationPeriod" name="probationPeriod">
+            </label>
+          
+            <label>
+              Обязанности:
+              <textarea [(ngModel)]="offer.responsibilities" name="responsibilities"></textarea>
+            </label>
+          
+            <label>
+              Преимущества:
+              <textarea [(ngModel)]="offer.benefits" name="benefits"></textarea>
+            </label>
+          
+            <button type="submit">Отправить</button>
+          </form>
+          
+    </div>
 </div>

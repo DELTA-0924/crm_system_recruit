@@ -5,5 +5,22 @@
     background-color: #333 !important;
     color: #fff !important;
     border-radius: 8px !important;
+   
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
   }
+  
+.fc-daygrid-event{
+  
+  overflow: hidden;
+}
+.fc .fc-daygrid-body-balanced .fc-daygrid-day-events{
+  overflow: hidden !important;
+  left:20px
+  
+}
+.fc .fc-daygrid-body-balanced .fc-daygrid-day-events:first-child{
+  display: none !important;
+}
+.fc .fc-daygrid-event-harness{
+  overflow: hidden !important;
+}

@@ -8,12 +8,13 @@
     </header>
   </div>
     <nav class="side-bar">
+    
       <div class="title">
         <img src="assets/icons/dashboard.svg" width="84" height="84">
         <h1>DashBoard</h1>         
       </div>
       <div class="side-bar-components ">
-        
+      
         <div class="select-header" tabindex="0">
           <img src="assets/icons/candidates.svg" width="24" height="24">        
             <span>Кандидаты</span>
@@ -49,7 +50,11 @@
           <img src="assets/icons/chevron-right 2.svg"  width="24" height="24">        
         </div>
     </div>
-    <img  class="logout-icon" [routerLink]="['/login']" src="assets/icons/logout.svg" width="42" height="42">
+    <div class="side-bar-components">
+      <button (click)="getExcelstat()" style="background-color: transparent; border: none;"> Получить отчет</button>      
+      </div>
+      
+    <img  class="logout-icon" [routerLink]="['/login']" src="assets/icons/logout.svg" width="42" height="42" (click)="logout()">
     </nav>
   
    <div class="inner-main">
@@ -62,7 +67,7 @@
                   </div>
                   <div class="stats-content">
                     <h4>Всего кандидатов</h4>
-                    <h1>5,423</h1>              
+                    <h1>{{(statistics$ |async)?.total}}</h1>              
                   </div>
               </div>
               <div class="main-stats">
@@ -71,7 +76,7 @@
                 </div>
                 <div class="stats-content">
                   <h4>Приглашенных кандидатов</h4>
-                  <h1>5,423</h1>              
+                  <h1>{{(statistics$ |async)?.onInterview}}</h1>              
                 </div>
               </div>
               <div class="main-stats">
@@ -80,11 +85,19 @@
                 </div>
                 <div class="stats-content">
                   <h4>Пройденных кандидатов</h4>
-                  <h1>5,423</h1>              
+                  <h1>{{(statistics$ |async)?.offerReceived}}</h1>              
                 </div>
               </div>
             </div>
           </div>  
+          <button class="header__burger-button burger-button  visible-mobile" 
+          type="button" 
+          aria-label="Open menu" 
+          title="Open Menu" data-js-header-burger-button>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          </button>
           <div class="table-container">
             <ng-container *ngIf="selectedComponent">
             <ng-container [ngComponentOutlet]="selectedComponent" ></ng-container>
@@ -97,6 +110,6 @@
         </div>
          
     </div>
-    
+   
       
   </div>

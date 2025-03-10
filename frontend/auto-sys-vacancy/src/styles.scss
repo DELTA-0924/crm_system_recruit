@@ -1,3 +1,8 @@
+@use 'helpers/functions' as *;
+@use 'helpers/mixins' as *;
+@use 'helpers/media' as *;
+
+
 ::ng-deep .iti {
   width: 100%; // Сделает поле ввода на всю ширину
 }
@@ -235,4 +240,43 @@
   font-weight: 600;
   font-style:normal;
   font-display:swap;    
+}
+
+
+:root{
+   --color-light:#FFFFFF;
+
+   --color-dark:#141414;
+
+   --color-dark-10:#1A1A1A;
+   --color-dark-15:#262626;
+   --color-dark-20:#333333;
+   --color-dark-40:#666666;
+
+
+   --color-gray-50:#7E7E81;
+   --color-gray-60:#98989A;
+
+   --color-accent:#FFD11A;
+
+   --color-red:#FF5500;
+   --font-family-base: 'Inter','sans-serif';
+   --font-family-accent: 'Kumbh  Sans','sans-serif';
+   --conainer-width: #{rem(1600)};
+   --container-padding-x: #{rem(16)};
+
+   --border: #{rem(1)} solid var(--color-dark-15);
+
+   --gradient:linear-gradient(
+       45deg,
+       var(--color-dark-15) 64%,
+       var(--color-accent) 136%
+       ) border-box;
+
+
+   --transition-duration:0.2s;
+
+   @include laptop{
+       --conainer-width: #{rem(1280)};
+   }
 }

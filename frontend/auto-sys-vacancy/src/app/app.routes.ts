@@ -3,6 +3,7 @@ import {ReqisterComponent} from './pages/reqister/reqister.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
+import { authGuard } from './services/auth-guard';
 export const routes: Routes = [
     {path:"",component:ReqisterComponent},
     {path:"register",component:ReqisterComponent},

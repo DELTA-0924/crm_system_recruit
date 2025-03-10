@@ -81,7 +81,7 @@
         </div>
       
       <label for="datePublish">Дата встречи:</label>
-      <input id="datePublish" type="datetime-local" formControlName="datePublish"/>
+      <input id="datePublish" type="date" formControlName="datePublish"/>
         
         
       <!-- <label>Тип занятости:
@@ -107,5 +107,15 @@
           <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>                
   </button>
+  <button type="button" (click)="onDelete()" class="button-delete" *ngIf="editMode">
+    Удалить
+    <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>     
+      <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>  
+  </button>
     </form>
+  
   </div>

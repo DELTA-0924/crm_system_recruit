@@ -1,37 +1,60 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vacancy } from '../models/Vacancy';
+import { environment } from '../../config';
+import { CookieService } from "ngx-cookie-service";
 @Injectable({
   providedIn: 'root'
 })
 export class VacanciesService {
 
-  private apiUrl = 'https://your-api.com/vacancies'; // Заменить на свой URL
-
-  constructor(private http: HttpClient) {}
+  private apiUrl = environment.apiUrl;   
+  sizePage=10;
+  constructor(private http: HttpClient,private cookieservice:CookieService) {}
 
   createVacancy(vacancy: Vacancy): Observable<Vacancy> {
-    return this.http.post<Vacancy>(this.apiUrl, vacancy);
+    return this.http.post<Vacancy>(this.apiUrl+'/addvacancy', vacancy);
+  }
+  getVacancyTitle():Observable<any[]>{
+    return this.http.get<any[]>(this.apiUrl+'/vacancies')
+  }
+  getVacancies(pageCandidate:number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+'/getvacancy',{
+      params:new  HttpParams({
+        fromObject:{page:pageCandidate,size:10}
+    })
+    });
   }
 
-
-  getVacancies(): Observable<Vacancy[]> {
-    return this.http.get<Vacancy[]>(this.apiUrl);
+  getOrderVacancies(mode:boolean,pageCandidate:number){
+    return this.http.get<any>(`${this.apiUrl}/getvacancy`,{
+      params:new  HttpParams({
+        fromObject:{
+          sort:mode ? 'new': 'old',
+          page:pageCandidate,size:this.sizePage}
+    })
+    });
   }
-
 
   getVacancyById(id: number): Observable<Vacancy> {
     return this.http.get<Vacancy>(`${this.apiUrl}/${id}`);
   }
 
-
-  updateVacancy(id: number, vacancy: Vacancy): Observable<Vacancy> {
-    return this.http.put<Vacancy>(`${this.apiUrl}/${id}`, vacancy);
+  getSearched(searchStr:string):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/searchedvacancy`,
+      { params:new HttpParams({
+          fromObject:{search:searchStr}
+    })})
   }
 
 
-  deleteVacancy(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  updateVacancy( vacancy: Vacancy): Observable<Vacancy> {
+    return this.http.post<Vacancy>(`${this.apiUrl}/updatevacacy`, vacancy);
+  }
+
+
+  deleteVacancy(vacancy: Vacancy): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/deletevacancy`,vacancy);
   }
 }

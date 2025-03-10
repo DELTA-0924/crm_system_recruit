@@ -3,8 +3,7 @@
     padding-block: 20px;
     padding-inline: 20px;
     background-color: white;
-    display: grid;    
-    grid-template-rows: 20% repeat(2,1fr);
+
     column-gap: 100px;
     row-gap: 30px;
     border-radius: 10px;    
@@ -17,7 +16,17 @@
             width: 50%;
             display: flex;
             justify-content: space-between;
-            
+            .button-search {
+                width: 24px;
+                height: 24px;
+                background-repeat: no-repeat;
+                border: none;
+                background-size: cover;                            
+                background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iZ3JheSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMTEuNzQyIDEwLjM0NGE2LjUgNi41IDAgMSAwLTEuMzk3IDEuMzk4aC0uMDAxYy4wMy4wNC4wNjIuMDc4LjA5OC4xMTVsMy44NSAzLjg1YTEgMSAwIDAgMCAxLjQxNC0xLjQxNGwtMy44NS0zLjg1YTEuMDA3IDEuMDA3IDAgMCAwLS4xMTQtLjA5OXpNMTIgNi41YTUuNSA1LjUgMCAxIDEtMTEgMCA1LjUgNS41IDAgMCAxIDExIDB6Ii8+PC9zdmc+');            
+
+            }
+
+
             .content-search {
                 background-color: #D3FFE7;
                 outline: none;
@@ -26,7 +35,7 @@
                 padding-left: 35px; 
                 height: 40px;
                 width:  200px;
-                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.414-1.414l-3.85-3.85a1.007 1.007 0 0 0-.114-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+             
                 background-repeat: no-repeat;
                 background-position: 10px center; 
                 background-size: 16px; 
@@ -37,8 +46,9 @@
                 }
         
                 &:focus {
-                    background-image: none;
+                  
                     padding-left: 10px; 
+                  
                 }
             }
             .content-orderby {
@@ -56,7 +66,8 @@
                 font-size: 14px;
             }
             .content-orderby {
-                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" viewBox="0 0 16 16"><path d="M8 10.5l-4-4h8l-4 4z"/></svg>'); // Иконка стрелки вниз
+                background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iZ3JheSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNOCAxMC41bC00LTRoOGwtNCA0eiIvPjwvc3ZnPg==');
+
         
                 &:focus {
                     background-image: none; 

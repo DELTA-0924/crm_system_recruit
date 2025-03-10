@@ -7,16 +7,18 @@ import { UserRegister,User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl+"/register";
+  private apiUrlRegisetr = environment.apiUrl+"/register";
+  private apiUrlLogin = environment.apiUrl+"/login";
+  // private apiUrlRegisetr = environment.apiUrl+"/logout";
   constructor(private http:HttpClient) {  }
-  Register(user:UserRegister):Observable<any>{
-    return this.http.post(this.apiUrl,{"user":user})
+  Register(user:User):Observable<any>{
+    return this.http.post(this.apiUrlRegisetr,user)
   }
   Login(user:User):Observable<any>{
-    return this.http.post(this.apiUrl,{"user":user})
+    return this.http.post(this.apiUrlLogin,user)
   }
   Logout():Observable<any>{
-    return this.http.get(this.apiUrl)
+    return this.http.get(this.apiUrlRegisetr)
   }
   
 }

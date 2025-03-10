@@ -83,3 +83,14 @@ span{
     margin-top: 5px;
     font-style: italic;
 }
+.button-delete{
+    background-color: red !important;
+    svg:last-child{
+        rotate: 90deg;
+        translate:-24px -5px
+    }
+    svg:first-child{
+        rotate: -90deg;
+        
+    }
+}

@@ -66,7 +66,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 156px;
+                width: 100%;
                 height: 48px;
                 font-family: 'Poppins-Regular';
                 transition: background 0.3s;
@@ -78,7 +78,7 @@
             .button-create:hover {
                 background-color: #4954d8;
             }
-         
+
         }
     }
 .iti--allow-dropdown{
@@ -121,4 +121,67 @@ span{
     font-family: 'Poppins-Semibold';
     font-weight: '600';
     
+}
+.button-delete{
+    background-color: red !important;
+    border:none;
+    color:white !important;
+    svg:last-child{
+        rotate: 90deg;
+        translate:-24px -5px
+    }
+    svg:first-child{
+        rotate: -90deg;
+        
+    }
+}
+.button-offer{
+    background-color: green !important;
+    svg:last-child{
+        rotate: 90deg;
+        
+    }
+}
+.offer-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    gap: 1rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
 }

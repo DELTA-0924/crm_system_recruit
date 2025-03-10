@@ -1,7 +1,7 @@
 import { Component,Output,EventEmitter, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TestVacanciesService } from '../../services/test-vacancy.service';
+
 import { Vacancy } from '../../models/Vacancy';
 import { VacanciesService } from '../../services/vacancies.service';
 @Component({
@@ -16,7 +16,7 @@ export class CreateVacancyComponent implements OnInit{
  editMode:boolean=false;
  vacancyForm!: FormGroup;
  submitted=false;
- constructor(private fb: FormBuilder,private vacanciesServiceTest: TestVacanciesService,private vacanciesService:VacanciesService) {
+ constructor(private fb: FormBuilder,private vacanciesService:VacanciesService) {
 
  }
 
@@ -45,15 +45,26 @@ export class CreateVacancyComponent implements OnInit{
       if(!this.editMode){
         const newVacancy: Vacancy = this.vacancyForm.value;
         console.log(newVacancy)
-        this.vacanciesServiceTest.createVacancy(newVacancy);
+        this.vacanciesService.createVacancy(newVacancy).subscribe();
         this.vacancyForm.reset(); // Очистить форму
         this.submitted=false
       }
       else {
         const updatedVacncy={id:this.vacancy!.id,...this.vacancyForm.value}
+        this.vacanciesService.updateVacancy(updatedVacncy).subscribe((response)=>{
+        //  console.log(response)
+        })
         console.log(updatedVacncy)
+        this.CloseModal();
       }
     }
     this.submitted=true;
+ }
+ onDelete():void{
+  if(this.vacancyForm.valid){
+    console.log("click in delete")
+    const deleteVacancyId: number = this.vacancyForm.value.id;
+    this.vacanciesService.deleteVacancy(this.vacancy!).subscribe()  
+  }
  }
 }
